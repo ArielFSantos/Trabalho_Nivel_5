@@ -1,47 +1,34 @@
+import { Livro } from '../livro';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ControleEditoraService } from '../controle-editora.service';
-import { ControleLivrosService } from '../controle-livros.service';
-import { Editora } from '../editora';
-import { Livro } from '../livro';
+
+import { ControleLivros } from '../controle-livros.service';
 
 @Component({
-  
   selector: 'app-livro-dados',
   templateUrl: './livro-dados.component.html',
   styleUrls: ['./livro-dados.component.css']
 })
 export class LivroDadosComponent implements OnInit {
-  
-  public livro: Livro = new Livro(0,0,'','',[]);
-  public autoresForm: string = '';
-  public editoras: Array<Editora> = [];
+  livro: Livro = {
+    codigo: '',
+    titulo: '',
+    autor: [''],
+    editora: '',
+    resumo:''
+  };
 
   constructor(
-    private servEditora: ControleEditoraService,
-    private servLivros: ControleLivrosService,
+    private controleLivros: ControleLivros,
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.editoras = this.servEditora.getEditoras();
-  }
+  ngOnInit() {}
 
-  incluir(event: Event): void {
-    event.preventDefault();
-    const autores = this.autoresForm.split('\n');
-  
-    const novoLivro: Livro = {
-      codigo: this.servLivros.livros.reduce((max, l) => (l.codigo > max ? l.codigo : max), 0) + 1,
-      codEditora: this.livro.codEditora,
-      titulo: this.livro.titulo,
-      resumo: this.livro.resumo,
-      autores: autores
-    };
-  
-    this.servLivros.incluir(novoLivro);
-  
-    this.router.navigateByUrl('/lista');
+  incluir() {
+    this.controleLivros.incluirLivro(this.livro).then(() => {
+      this.router.navigateByUrl('/lista');
+    });
   }
-  
 }
+
