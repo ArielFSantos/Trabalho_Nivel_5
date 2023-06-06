@@ -1,7 +1,7 @@
 <main class="container">
     <h2>Cadastrar Livro</h2>
   
-    <form (submit)="incluir($event)" ngNoForm>
+    <form (submit)="incluir()" ngNoForm>
       <div class="form-group">
         <label for="tituloInput">Título:</label>
         <input type="text" id="tituloInput" class="form-control" required [(ngModel)]="livro.titulo">
@@ -14,15 +14,15 @@
   
       <div class="form-group">
         <label for="editoraSelect">Editora:</label>
-        <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.codEditora">
-          <option *ngFor="let editora of editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
+        <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.editora">
+          <option *ngFor="let editora of livro.editora" [value]="livro.editora">{{ livro.editora }}</option>
         </select>
       </div>
       
   
       <div class="form-group">
         <label for="autoresTextarea">Autores:</label>
-        <textarea id="autoresTextarea" class="form-control" rows="3" [(ngModel)]="autoresForm"></textarea>
+        <textarea id="autoresTextarea" class="form-control" rows="3" [(ngModel)]="livro.autor"></textarea>
       </div>
   
       <button type="submit" class="btn btn-primary">Cadastrar</button>

@@ -18,10 +18,10 @@
             </button></td>
           
           <td class="w-50 p-2">{{ livro.resumo }}</td>
-          <td>{{ obterNome(livro.codEditora) }}</td>
+          <td>{{(livro.editora) }}</td>
           <td>
             <ul>
-              <li *ngFor="let autor of livro.autores">{{ autor }}</li>
+              <li *ngFor="let autor of livro.autor">{{ autor }}</li>
             </ul>
           </td>
         </tr>
