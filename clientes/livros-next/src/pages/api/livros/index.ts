@@ -10,10 +10,10 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).json(livros);
     } else if (req.method === 'POST') {
       const livro = req.body;
-      controleLivro.incluir(livro);
+      controleLivro.incluirLivro(livro);
       res.status(200).json({ message: 'Sucesso' });
     } else if (req.method === 'DELETE') {
-      const codigo = Number(req.query.codigo);
+      const codigo = String(req.query.codigo);
       controleLivro.excluir(codigo);
       res.status(200).json({ message: 'Sucesso' });
     } else {

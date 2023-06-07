@@ -1,7 +1,11 @@
 import { Livro } from '../livro';
+import { Editora } from '../editora';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ControleLivros } from '../controle-livros.service';
+import { ControleEditoraService } from '../controle-editora.service';
+
 
 @Component({
   selector: 'app-livro-dados',
@@ -9,20 +13,27 @@ import { ControleLivros } from '../controle-livros.service';
   styleUrls: ['./livro-dados.component.css']
 })
 export class LivroDadosComponent implements OnInit {
-  livro: Livro = {
+  public livro: Livro = {
     codigo: '',
     titulo: '',
     autor: [''],
     editora: '',
     resumo:''
   };
+    public editoras: Editora[] = [];
+
+
 
   constructor(
+    public controleEditoraService: ControleEditoraService,
     private controleLivros: ControleLivros,
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.editoras = this.controleEditoraService.getEditoras();
+
+  }
 
   incluir() {
     this.controleLivros.incluirLivro(this.livro).then(() => {

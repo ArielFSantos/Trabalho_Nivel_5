@@ -1,3 +1,4 @@
+
 <main class="container">
     <h2>Cadastrar Livro</h2>
   
@@ -15,8 +16,10 @@
       <div class="form-group">
         <label for="editoraSelect">Editora:</label>
         <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.editora">
-          <option *ngFor="let editora of livro.editora" [value]="livro.editora">{{ livro.editora }}</option>
+          <option *ngFor="let editora of controleEditoraService.editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
         </select>
+        
+        
       </div>
       
   

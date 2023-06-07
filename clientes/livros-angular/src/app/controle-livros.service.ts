@@ -1,6 +1,5 @@
-
 import { Livro } from './livro';
-
+import { ControleEditoraService } from './controle-editora.service';
 
 
 const baseURL = 'http://localhost:3030/livros';

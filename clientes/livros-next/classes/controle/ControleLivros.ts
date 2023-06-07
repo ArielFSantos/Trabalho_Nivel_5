@@ -10,7 +10,7 @@ interface LivroMongo {
   resumo: string;
 }
 
-export class ControleLivros {
+export default class ControleLivros {
   obterLivros = async (): Promise<Livro[]> => {
     const resposta = await fetch(baseURL);
     const dados: LivroMongo[] = await resposta.json();

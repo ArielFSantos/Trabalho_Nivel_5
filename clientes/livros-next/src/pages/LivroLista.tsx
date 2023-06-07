@@ -57,18 +57,18 @@ const LivroLista:NextPage = () => {
             </tr>
           </thead>
           <tbody>
-            {livros.map((livro: any) => (
-              <tr key={livro.codigo}>
-                <td>{livro.titulo} <br/>
+            {livros.map((LivroMongo: any) => (
+              <tr key={LivroMongo.codigo}>
+                <td>{LivroMongo.titulo} <br/>
                 <button
                   type="button"
                   className="btn btn-danger"
-                  onClick={() => excluir(livro.codigo)}>Excluir</button>
+                  onClick={() => excluir(LivroMongo.codigo)}>Excluir</button>
 
                   </td>
-                <td>{livro.resumo}</td>
-                <td>{livro.autor}</td>
-                <td>{livro.editora}</td>
+                <td>{LivroMongo.resumo}</td>
+                <td>{LivroMongo.autor}</td>
+                <td>{LivroMongo.editora}</td>
                 <td>
                   
                 </td>
