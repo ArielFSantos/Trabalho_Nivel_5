@@ -13,7 +13,6 @@ export class ControleEditoraService {
   ];
     editoraSelecionada: Editora | null = null;
 
-
   getEditoras(): Editora[] {
     return this.editoras;
   }

@@ -5,7 +5,14 @@ const options = {
   useNewUrlParser: true
 };
 
-mongoose.connect('mongodb://localhost/livraria', options);
+const banco = mongoose;
 
+mongoose.connect('mongodb://localhost:27017/livraria', options)
+  .then(() => {
+    console.log('Conexão com o MongoDB estabelecida com sucesso!');
+  })
+  .catch((error) => {
+    console.error('Erro ao conectar ao MongoDB:', error);
+  });
 
-module.exports = mongoose;
+module.exports = banco;
