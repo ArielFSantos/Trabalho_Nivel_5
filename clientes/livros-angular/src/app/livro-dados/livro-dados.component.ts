@@ -1,6 +1,5 @@
 import { Livro } from '../livro';
 import { Editora } from '../editora';
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ControleLivros } from '../controle-livros.service';
