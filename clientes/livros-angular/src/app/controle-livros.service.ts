@@ -7,8 +7,8 @@ const baseURL = 'http://localhost:3030/livros';
 interface LivroMongo {
   codigo: string;
   titulo: string;
-  autor: string[];
-  editora: string;
+  autores: string[];
+  codEditora: string;
   resumo: string;
 }
 
@@ -42,8 +42,8 @@ export class ControleLivros {
     return {
       codigo: String(livroMongo.codigo),
       titulo: livroMongo.titulo,
-      autor: livroMongo.autor,
-      editora: livroMongo.editora,
+      autores: livroMongo.autores,
+      codEditora: livroMongo.codEditora,
       resumo: livroMongo.resumo,
     };
   };
@@ -52,8 +52,8 @@ export class ControleLivros {
     return {
       codigo: livro.codigo.toString(),
       titulo: livro.titulo,
-      autor: livro.autor,
-      editora: livro.editora,
+      autores: livro.autores,
+      codEditora: livro.codEditora,
       resumo: livro.resumo,
     };
   };

@@ -15,7 +15,7 @@
   
       <div class="form-group">
         <label for="editoraSelect">Editora:</label>
-        <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.editora">
+        <select id="editoraSelect" class="form-control" required [(ngModel)]="livro.codEditora">
           <option *ngFor="let editora of controleEditoraService.editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
         </select>
         
@@ -25,7 +25,7 @@
   
       <div class="form-group">
         <label for="autoresTextarea">Autores:</label>
-        <textarea id="autoresTextarea" class="form-control" rows="3" [(ngModel)]="livro.autor"></textarea>
+        <textarea id="autoresTextarea" class="form-control" rows="3" [(ngModel)]="livro.autores"></textarea>
       </div>
   
       <button type="submit" class="btn btn-primary">Cadastrar</button>

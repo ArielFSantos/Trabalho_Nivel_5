@@ -16,8 +16,8 @@ export class LivroDadosComponent implements OnInit {
   public livro: Livro = {
     codigo: '',
     titulo: '',
-    autor: [''],
-    editora: '',
+    autores: [''],
+    codEditora: '',
     resumo:''
   };
     public editoras: Editora[] = [];

@@ -2,10 +2,10 @@ const banco = require('./conexao');
 
 const LivroSchema = banco.Schema({
 _id: banco.Schema.Types.ObjectId,
-codEditora:Number,  
+codEditora:String,  
 titulo: String,
 resumo:String,
-autor: [String],
+autores: [String],
 });
 
 module.exports = banco.model('Livro', LivroSchema); 
